@@ -5,11 +5,7 @@ from django.shortcuts import render
 def index(request):
     return render(request, "hello/index.html")
 
-def devin(request):
-    return HttpResponse("Hello, Devin")
-
-def isabel(request):
-    return HttpResponse("Hello, Isabel")
-
 def greet(request, name):
-    return HttpResponse(f"Hello, {name.capitalize()}!")
+    return render(request, "hello/greet.html", {
+        "name": name.capitalize()
+    })
